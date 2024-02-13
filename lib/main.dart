@@ -19,7 +19,7 @@ class EcommerceApp extends StatelessWidget {
       theme: ThemeData(useMaterial3: true),
       debugShowCheckedModeBanner: false,
       title: 'E-Commerce',
-      initialRoute: '/cart',
+      initialRoute: '/product',
       routes: {
         '/' :(context) => SplashScreen(),
          '/cart' :(context) => CartScreen(),

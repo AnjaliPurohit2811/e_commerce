@@ -30,12 +30,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       decoration: BoxDecoration(
                           color: Colors.grey.shade300,
                           borderRadius: BorderRadius.circular(15)),
-                      child: Icon(Icons.arrow_back),
+                      child: const Icon(Icons.arrow_back),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Container(
+                  const Padding(
+                    padding: EdgeInsets.all(20.0),
+                    child: SizedBox(
                       height: 60,
                       width: 60,
                       child: CircleAvatar(
@@ -50,14 +50,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Container(
-                      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                      padding: EdgeInsets.all(10),
+                      margin: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 5),
+                      padding: const EdgeInsets.all(10),
                       height: 50,
                       width: 370,
                       decoration: BoxDecoration(
                           color: Colors.white60,
                           borderRadius: BorderRadius.circular(15)),
-                      child: Row(
+                      child: const Row(
                         children: [
                           Icon(
                             Icons.search,
@@ -98,10 +99,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         'asset/img/1.jpeg',
                         fit: BoxFit.cover,
                       ),
-                      Align(
+                      const Align(
                           alignment: Alignment.topRight,
                           child: Padding(
-                            padding: const EdgeInsets.all(6.0),
+                            padding: EdgeInsets.all(6.0),
                             child: Text(
                               'Elevate your wardrobe',
                               style: TextStyle(
@@ -121,10 +122,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     decoration: BoxDecoration(
                         color: Colors.brown,
                         borderRadius: BorderRadius.circular(10)),
-                    child: Center(
+                    child: const Center(
                       child: Text(
                         'All',
-                        style: TextStyle(color: Colors.white, fontSize: 23),
+                        style: TextStyle(color: Colors.white, fontSize: 18),
                       ),
                     ),
                   ),
@@ -134,10 +135,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     decoration: BoxDecoration(
                         color: Colors.grey,
                         borderRadius: BorderRadius.circular(10)),
-                    child: Center(
+                    child: const Center(
                       child: Text(
                         'Men',
-                        style: TextStyle(color: Colors.white, fontSize: 23),
+                        style: TextStyle(color: Colors.white, fontSize: 18),
                       ),
                     ),
                   ),
@@ -150,7 +151,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: const Center(
                       child: Text(
                         'Women',
-                        style: TextStyle(color: Colors.white, fontSize: 23),
+                        style: TextStyle(color: Colors.white, fontSize: 18),
                       ),
                     ),
                   ),
@@ -160,10 +161,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     decoration: BoxDecoration(
                         color: Colors.grey,
                         borderRadius: BorderRadius.circular(10)),
-                    child: Center(
+                    child: const Center(
                       child: Text(
                         'Kids',
-                        style: TextStyle(color: Colors.white, fontSize: 23),
+                        style: TextStyle(color: Colors.white, fontSize: 18),
                       ),
                     ),
                   ),
@@ -174,56 +175,68 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    SizedBox(height: 20,),
+                    const SizedBox(
+                      height: 20,
+                    ),
                     Row(
                       children: [
                         Column(
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.all(5.0),
-                              child: Container(
-                                height: 260,
-                                width: 190,
-                                color: Colors.white,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Container(
-                                        height: 170,
-                                        width: 170,
-                                        child: Image.asset('asset/img/2.jpeg'),
+                            InkWell(
+                              onTap: () {
+                                setState(() {
+                                  Navigator.of(context).pushNamed('/product');
+                                });
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.all(5.0),
+                                child: Container(
+                                  height: 260,
+                                  width: 190,
+                                  color: Colors.white,
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: SizedBox(
+                                          height: 170,
+                                          width: 170,
+                                          child:
+                                              Image.asset('asset/img/2.jpeg'),
+                                        ),
                                       ),
-                                    ),
-                                    // SizedBox(height: 5,),
-                                    const Padding(
-                                      padding: EdgeInsets.all(8.0),
-                                      child: Text('Women coat'),
-                                    ),
-                                    Row(
-                                      mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                      children: [
-                                        const Text(
-                                          "\$150",
-                                          style: TextStyle(fontSize: 17),
-                                        ),
-                                        const SizedBox(
-                                          width: 10,
-                                        ),
-                                        Container(
-                                          height: 38,
-                                          width: 38,
-                                          decoration: BoxDecoration(
-                                              color: Colors.black,
-                                              shape: BoxShape.circle),
-                                          child: Icon(Icons.shopping_cart,
-                                              color: Colors.white),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
+                                      // SizedBox(height: 5,),
+                                      const Padding(
+                                        padding: EdgeInsets.all(8.0),
+                                        child: Text('Women coat'),
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        children: [
+                                          const Text(
+                                            "\$150",
+                                            style: TextStyle(fontSize: 17),
+                                          ),
+                                          const SizedBox(
+                                            width: 10,
+                                          ),
+                                          Container(
+                                            height: 38,
+                                            width: 38,
+                                            decoration: const BoxDecoration(
+                                                color: Colors.black,
+                                                shape: BoxShape.circle),
+                                            child: const Icon(
+                                                Icons.shopping_cart,
+                                                color: Colors.white),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
@@ -238,7 +251,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   children: [
                                     Padding(
                                       padding: const EdgeInsets.all(8.0),
-                                      child: Container(
+                                      child: SizedBox(
                                         height: 170,
                                         width: 170,
                                         child: Image.asset('asset/img/3.jpeg'),
@@ -251,7 +264,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ),
                                     Row(
                                       mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
+                                          MainAxisAlignment.spaceAround,
                                       children: [
                                         const Text(
                                           "\$150",
@@ -263,10 +276,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                         Container(
                                           height: 38,
                                           width: 38,
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                               color: Colors.black,
                                               shape: BoxShape.circle),
-                                          child: Icon(Icons.shopping_cart,
+                                          child: const Icon(Icons.shopping_cart,
                                               color: Colors.white),
                                         ),
                                       ],
@@ -290,7 +303,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   children: [
                                     Padding(
                                       padding: const EdgeInsets.all(8.0),
-                                      child: Container(
+                                      child: SizedBox(
                                         height: 170,
                                         width: 170,
                                         child: Image.asset('asset/img/5.jpeg'),
@@ -303,7 +316,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ),
                                     Row(
                                       mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
+                                          MainAxisAlignment.spaceAround,
                                       children: [
                                         const Text(
                                           "\$150",
@@ -315,10 +328,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                         Container(
                                           height: 38,
                                           width: 38,
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                               color: Colors.black,
                                               shape: BoxShape.circle),
-                                          child: Icon(Icons.shopping_cart,
+                                          child: const Icon(Icons.shopping_cart,
                                               color: Colors.white),
                                         ),
                                       ],
@@ -338,7 +351,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   children: [
                                     Padding(
                                       padding: const EdgeInsets.all(8.0),
-                                      child: Container(
+                                      child: SizedBox(
                                         height: 170,
                                         width: 170,
                                         child: Image.asset('asset/img/7.jpeg'),
@@ -363,20 +376,18 @@ class _HomeScreenState extends State<HomeScreen> {
                                         Container(
                                           height: 38,
                                           width: 38,
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                               color: Colors.black,
                                               shape: BoxShape.circle),
-                                          child: Icon(Icons.shopping_cart,
+                                          child: const Icon(Icons.shopping_cart,
                                               color: Colors.white),
                                         ),
-
                                       ],
                                     ),
                                   ],
                                 ),
                               ),
                             ),
-
                           ],
                         ),
                       ],
@@ -433,7 +444,7 @@ class _HomeScreenState extends State<HomeScreen> {
 Widget productBox(
     {required String img, required String name, required int price}) {
   return Container(
-    margin: EdgeInsets.symmetric(horizontal: 5),
+    margin: const EdgeInsets.symmetric(horizontal: 5),
     height: 250,
     width: 160,
     // color: Colors.black12,
@@ -445,7 +456,7 @@ Widget productBox(
           height: 160,
           width: 160,
           decoration: BoxDecoration(
-              color: Color(0xffEEEEEE),
+              color: const Color(0xffEEEEEE),
               borderRadius: BorderRadius.circular(15)),
           child: Stack(
             children: [
@@ -453,10 +464,10 @@ Widget productBox(
                 img,
                 fit: BoxFit.cover,
               ),
-              Align(
+              const Align(
                   alignment: Alignment.topRight,
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: EdgeInsets.all(8.0),
                     child: Icon(
                       Icons.favorite_border,
                       color: Colors.black,
@@ -466,22 +477,22 @@ Widget productBox(
           ),
         ),
         Container(
-          padding: EdgeInsets.symmetric(horizontal: 5),
+          padding: const EdgeInsets.symmetric(horizontal: 5),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
               Text(
                 name,
-                style: TextStyle(
+                style: const TextStyle(
                     color: Colors.black,
                     fontSize: 18,
                     fontWeight: FontWeight.w500),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 5),
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 5),
                 child: Row(
                   children: [
                     Icon(
